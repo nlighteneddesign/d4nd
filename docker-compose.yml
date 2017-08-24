@@ -22,6 +22,16 @@ services:
     networks:
       - sonarnet
     tty: true
+  node:
+    build:
+      context: ./containers/node
+    volumes_from:
+      - applications
+    ports:
+      - "${NODE_HOST_PORT}:8080"
+    networks:
+      - sonarnet
+    tty: true
   sonarqube:
     build:
       context: ./containers/sonarqube

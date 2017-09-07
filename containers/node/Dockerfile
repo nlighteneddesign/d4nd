@@ -3,9 +3,10 @@ LABEL contributor.1="@nicxvan nlightened Development LLC <nic@nlighteneddevelopm
 
 
 ### Build project
-WORKDIR /var/www/nodeapp
-
-RUN npm install
+USER root
+#COPY ../../../package.json /var/www/package.json
+#WORKDIR /var/www/nodeapp
+#RUN npm install --prefix /var/www/node_modules
 
 COPY ./entrypoint.bash /bin/entrypoint.bash
 
